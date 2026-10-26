@@ -1,0 +1,21 @@
+{
+  "name": "energy-converter",
+  "version": "1.0.0",
+  "description": "量子化学・分光でよく使うエネルギー単位の換算ツール",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/convert.test.ts"
+  },
+  "license": "MIT",
+  "author": "dmb4565",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmb4565/energy-converter.git"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

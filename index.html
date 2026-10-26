@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>エネルギー換算 | ENERGY UNIT CONVERTER</title>
+    <meta
+      name="description"
+      content="量子化学・分光でよく使うエネルギー単位（Hartree, eV, kcal/mol, kJ/mol, cm⁻¹, nm, K）を換算するツール。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- ヘッダー -->
+      <header class="site-header">
+        <p class="eyebrow">ENERGY UNIT CONVERTER</p>
+        <h1 class="title">エネルギー換算</h1>
+        <p class="lead">
+          量子化学・分光でよく使うエネルギー単位を「変換元 → 変換先」で換算します。
+        </p>
+      </header>
+
+      <!-- 変換元カード -->
+      <section class="card" aria-labelledby="from-heading">
+        <h2 id="from-heading" class="card-heading">変換元</h2>
+        <div class="value-row">
+          <label class="visually-hidden" for="value-input">換算する数値</label>
+          <input
+            id="value-input"
+            class="value-input"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            spellcheck="false"
+            value="1"
+            aria-describedby="input-error"
+          />
+          <span id="from-unit-label" class="unit-name" aria-hidden="true">eV</span>
+        </div>
+        <div id="from-units" class="unit-group" role="group" aria-label="変換元の単位"></div>
+        <p id="input-error" class="input-error" role="alert" hidden></p>
+      </section>
+
+      <!-- 入れ替えボタン -->
+      <div class="swap-row">
+        <button id="swap-btn" type="button" class="swap-btn" aria-label="変換元と変換先を入れ替える">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path
+              d="M7 4v13M7 4L4 7M7 4l3 3M17 20V7M17 20l3-3M17 20l-3-3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- 変換先カード -->
+      <section class="card" aria-labelledby="to-heading">
+        <h2 id="to-heading" class="card-heading">変換先</h2>
+        <div id="to-units" class="unit-group" role="group" aria-label="変換先の単位"></div>
+        <div class="result-box">
+          <div class="result-value-wrap">
+            <output id="result-value" class="result-value" aria-live="polite">—</output>
+            <span id="to-unit-label" class="unit-name" aria-hidden="true">nm</span>
+          </div>
+          <button id="copy-btn" type="button" class="copy-btn" aria-label="結果をコピー">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+              <rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M5 15V5a2 2 0 0 1 2-2h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span class="copy-label">コピー</span>
+          </button>
+        </div>
+        <div id="descriptions" class="descriptions"></div>
+      </section>
+
+      <!-- フッター -->
+      <footer class="site-footer">
+        <p class="footer-constants">
+          物理定数は
+          <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener noreferrer">NIST CODATA 2022</a>
+          に基づきます（h, c, e, k<sub>B</sub>, N<sub>A</sub> は SI 定義値、E<sub>h</sub> = 4.3597447222060 × 10⁻¹⁸ J）。
+        </p>
+        <p class="footer-links">
+          <a href="https://github.com/dmb4565/energy-converter" target="_blank" rel="noopener noreferrer">GitHub リポジトリ</a>
+          <span class="dot" aria-hidden="true">·</span>
+          <span>作者: dmb4565</span>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="dist/app.js"></script>
+  </body>
+</html>

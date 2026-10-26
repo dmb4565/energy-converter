@@ -1,0 +1,3 @@
+node_modules/
+
+# dist/ はコミットする（GitHub Pages がコンパイル後の JS を配信するため）
